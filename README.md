@@ -4,6 +4,7 @@ Code that creates a machine learning model for for analysing the the tap in volu
 Please note:
 If using the code for your own purposes, please download the dataset, and rename the file to what path it is on.
 The columns of the dataset are as follows:
+
 YEAR_MONTH: The month and year this was taken in. (For this dataset, all of the rows will be 2025-01, indicating Jan 2025.)
 DAY_TYPE: On what type of day was this recorded. Broken into two types: WEEKDAY, AND WEEKEND/HOLIDAY
 TIME_PER_HOUR: What hour was this recorded in. For example, a value of 12 indicates that the data was recorded from 1200hrs to 1259hrs (or 12:00-12:59pm). Values are 0, and then 5-23.
@@ -19,3 +20,15 @@ Pandas: https://pandas.pydata.org/
 Scikit-learn: https://scikit-learn.org/
 Seaborn: https://seaborn.pydata.org/
 Matplotlib: https://matplotlib.org/
+
+Project goal: To analyse the LTA dataset for passenger volumes in train stations, and find out when are the busiest times on the network.
+
+How this was achieved:
+
+Data cleaning: Removing unneccessary data such as PT_TYPE, TOTAL_TAP_OUT_VOLUME and YEAR_MONTH
+
+Data preprocessing: Converting PT_CODE to station types, and then using OneHotEncoding to convert for modelling.
+
+Machine learning: Using multiple predictors values, such as DAY_TYPE, station types, and TIME_PER_HOUR to get a better model, and using the Random Forest Regressor with edited parameters to get a better result.
+
+Modelling: Creating a set of values for TIME_PER_HOUR, station type, and DAY_TYPE to acquire a set of predicted values for TOTAL_TAP_IN_VOLUME, and plotting that against TIME_PER_HOUR to create a time series graph.
